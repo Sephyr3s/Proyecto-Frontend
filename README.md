@@ -1,1 +1,1 @@
-# App Store compia frontend
+# App Store copia frontend
