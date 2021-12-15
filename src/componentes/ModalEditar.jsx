@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react"
 import ProductForm from "./ProductForm";
 import Productitem from "./Productitem";
-
+import { update } from '../services/ProductServices';
 import { GlobalContext } from '../context/GlobalContext'
 
-const ModalEditar = () => {
+const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
 
-  const { precio, productName, updateProduct, productEdit } = useContext(GlobalContext);
+  const { precio, productName, imagen, productEdit } = useContext(GlobalContext);
 
   const [product, setProduct] = useState({nombre: "", precio: 0})
   useEffect(() => {
@@ -19,25 +19,41 @@ const ModalEditar = () => {
     setProduct({...product, ["precio"]: precio})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [precio])
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["image"]: imagen})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imagen])
 
   useEffect(() => {
     setProduct({nombre: productName, precio: precio})
-    console.log(product);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productEdit])
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!(productName === "" || precio === 0 || precio == null || isNaN(precio) || imagen === "")) {
+      (async () => {
+        try {
+          const result = await update(productEdit.id, { name: productName, price: precio, image: imagen });
+          console.log("PRODUCTO ACTUALIZADO => ", result.data);
+        } catch (error) {
+          console.log(error);        
+        }
+      })();
+    //Alerta producto actualizado
+    }
+    else {
+      //Alerta "Fill all fields"
+    }
+  }
+
   return (
-    <div
-      className="modal fade"
-      id="myModal"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
+    <div className="modal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Editar producto</h5>
+            <h5 className="modal-title">Edit liquor</h5>
             <button className="btn btn-danger close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -49,10 +65,10 @@ const ModalEditar = () => {
             </div>
           </div>
           <div className="modal-footer">
-            <button onClick={() => {updateProduct()}} data-dismiss="modal" type="button" className="btn btn-info" style={{width: '100%'}}>
-              Guardar cambios
-            </button>
-          </div>
+              <button onClick={handleClick} data-dismiss="modal" type="button" className="btn btn-info" style={{width: '100%'}}>
+                Save
+              </button>
+            </div>
         </div>
       </div>
     </div>

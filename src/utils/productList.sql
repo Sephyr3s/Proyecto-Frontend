@@ -1,0 +1,9 @@
+INSERT INTO products (nombre, precio, imagen) VALUES ('Buffalo - Striploin', 45005.2, 'https://th.bing.com/th/id/OIP.qLF9tV0L_IjfTSVHWXvSxgHaKX?pid=ImgDet&rs=1');
+INSERT INTO products (nombre, precio, imagen) VALUES ('Bacardi Breezer', 104059.5,'https://www.shoppingdrink.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/a/bacardi_breezer_arancia_1200x1200.jpg' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Wine - Gato negro Cabernet', 53552.2,'https://th.bing.com/th/id/R.9e0cf165f6dc0a1529b05f5147dfe976?rik=gQQnDxdJ%2bkSmSQ&riu=http%3a%2f%2fwww.lcbo.com%2fcontent%2fdam%2flcbo%2fproducts%2f188193.jpg%2fjcr%3acontent%2frenditions%2fcq5dam.web.1280.1280.jpeg&ehk=TfTzQRfoQ8YEeHLTMOuYlzYDsroQbRPy0eHDDag4Z5w%3d&risl=&pid=ImgRaw&r=0' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Cabbage - Nappa', 482837.2,'https://th.bing.com/th/id/OIP.dyH9RX7I98h-TIkLA04lrgHaKq?pid=ImgDet&w=1067&h=1536&rs=1' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Sping Loaded Cup Dispenser', 175335.2,'https://i.pinimg.com/originals/a8/bb/2d/a8bb2dc1844f2d1e1651c5845f746457.jpg' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Bread - Malt',  89873.5,' https://th.bing.com/th/id/OIP.x_x9KFG_DRaYy_UhX_I7rwHaJ4?pid=ImgDet&rs=1' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Glass Clear 8 Oz', 201233.10,'https://images-na.ssl-images-amazon.com/images/I/61BxpW5%2BFVL._SX522_.jpg');
+INSERT INTO products (nombre, precio, imagen) VALUES ('Sour Puss Raspberry', 134848.99,'https://nlliquor.com/wp-content/uploads/2020/10/4697_m.jpg' );
+INSERT INTO products (nombre, precio, imagen) VALUES ('Pork - Chop, Frenched',19957.16,'https://www.bodegasmurilloviteri.com/wp-content/uploads/2019/11/vino-rioja-reserva-magnum-2-288x400.jpg' );

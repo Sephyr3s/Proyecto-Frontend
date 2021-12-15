@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import Productitem from "./Productitem";
-
 import { GlobalContext } from '../context/GlobalContext';
 
 
@@ -54,11 +53,22 @@ const Products = () => {
         </div>
       </div>
 
-      <div className="row px-3" style={{paddingBottom: "10 px"}}>
-          {productsToList.map((c,i)=>(
-            <div   key={i} className="col-md-4">
-            <Productitem functionalButtons={true} product={c}/>
-            </div> ))}
+      <div className="row px-3" style={{paddingBottom: "10 px"}}> 
+      {
+          productsToList.length > 0 ? (
+            productsToList.map((p, i) => (
+              <div key={i} className="col-md-4">
+                  <Productitem functionalButtons={true} product={p} />
+              </div>
+            ))
+          ) :
+          (
+            <div className="w-100" >
+          
+                <p className="text-center" style={{ fontSize: '1.5rem'}}>Sin productos en el catálogo...!</p>
+            </div>
+          )
+        }
       </div>
     </div>
   );

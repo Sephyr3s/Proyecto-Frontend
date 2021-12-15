@@ -1,8 +1,22 @@
-import React from 'react';
 import Header from '../componentes/Header';
 import Products from '../componentes/Products';
+import React, { useEffect } from 'react';
+import {getAll} from '../services/ProductServices';
+
 
 const Store = () => {
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await getAll();
+                console.log("Data fetch", result.data);
+            } catch (error) {
+                console.log(error);            
+            }
+        })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
     return (
         <>  
         <Header />

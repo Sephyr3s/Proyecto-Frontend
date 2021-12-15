@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext,useRef } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
 
-import { toast } from 'react-toastify'
+import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import {create} from '../services/ProductServices'
 
 const ProductForm = ({ type }) => {
 
-  const { addProduct, changePrice, changeProductName, precio, productName } = useContext(GlobalContext);
-
+  const redirection = useRef(null);
+  const { changePrice, changeImage, changeProductName, precio, productName, imagen } = useContext(GlobalContext);
+ 
   const handleChange = (e) => {
     if (e.target.name === "productName") {
         changeProductName(e.target.value)
@@ -19,25 +20,43 @@ const ProductForm = ({ type }) => {
     }
   };
 
+  //Acción crear licor
   const handleClick = (e) => {
-    addProduct({ name: productName, precio: precio });
-    changeProductName("Nombre")
-    changePrice(0)
-    toast.info('Ha producto al carrito!', {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+    e.preventDefault();
+    if (!(productName === "Unnamed" || precio === 0 || precio == null || isNaN(precio) || imagen === "")) {
+      (async () => {
+        try {
+          const result = await create({ nombre: productName, precio: precio, image: imagen });
+          console.log("PRODUCT CREATED => ", result.data);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+  
+      changeProductName("Without name")
+      changePrice(0)
+      changeImage("https://ep01.epimg.net/elcomidista/imagenes/2020/08/31/articulo/1598909097_396757_1598912731_sumario_normal.jpg")
+      redirection.current.click();
+    }
+    else {
+      toast.warn('Make sure to fill the fields', {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
       });
+    }
+    
   };
 
   return (
+    <>
     <form className="m-2">
       <div className="form-group mb-3">
-        <label htmlFor="productName">Nombre</label>
+        <label htmlFor="productName">Name</label>
         <input
           onChange={handleChange}
           type="text"
@@ -48,9 +67,22 @@ const ProductForm = ({ type }) => {
           value={productName}
         />
       </div>
-      
       <div className="form-group mb-3">
-        <label htmlFor="precio">Precio</label>
+          <label htmlFor="image">Url</label>
+          <div className="input-group">
+            <input
+              onChange={handleChange}
+              id="image"
+              name="image"
+              type="url"
+              className="form-control"
+              placeholder="https://"
+              value={imagen}
+            />
+          </div>
+        </div>
+      <div className="form-group mb-3">
+        <label htmlFor="precio">Price</label>
         <div className="input-group">
           <span className="input-group-text">$</span>
            <input
@@ -61,10 +93,12 @@ const ProductForm = ({ type }) => {
       </div>
       
       {type === "crear" && <Link to="vistaProductos">
-        <button onClick={handleClick} className="btn btn-info mb-3"style={{ width: "100%" }} > Añadir producto </button>
+        <button onClick={handleClick} className="btn btn-info mb-3"style={{ width: "100%" }} > Add liquor </button>
       </Link>
       }
     </form>
+    <ToastContainer/>
+    </>
   );
 };
 export default ProductForm;

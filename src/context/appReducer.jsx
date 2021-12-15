@@ -8,8 +8,12 @@ export const getTotalPagar = (carrito) => {
 }
 
 export function appReducer(state, action) {
-    console.log(state, action);
     switch (action.type) {
+
+        case "LOAD_PRODUCTS":
+            return {
+                ...state, products: action.payload.productList, productsFilter: action.payload.productList 
+            }
 
         case "UPDATE_PRODUCT_LIST":
             if (action.payload.match !== "") {
@@ -24,17 +28,6 @@ export function appReducer(state, action) {
                 }
             }
 
-        case "ADD_PRODUCT":
-            let product = {...action.payload.product, id: state.products.length+1 }
-            console.log(product)
-            return {
-                ...state, products: [ ...state.products, product ]
-            }
-        
-        case "DELETE_PRODUCT":
-            return {
-                ...state, products: state.products.filter(p => p.id !== action.payload.productId)
-            }
         
         case "CHANGE_NAME":
             return {...state, productName: action.payload.productName}
@@ -44,13 +37,7 @@ export function appReducer(state, action) {
         
         case "SET_PRODUCT_EDIT":
             return {...state, productEdit: action.payload.product}
-
-        case "UPDATE_PRODUCT":
-            let indiceElemento = state.products.findIndex(p => p.id === state.productEdit.id)
-            let products = [...state.products]
-            products[indiceElemento] = { id: state.productEdit.id, nombre: state.productName,  precio: state.precio}
-            console.log(products)
-            return { ...state, products: products }
+            
         
         case "ADD_PRODUCT_TO_CARRITO":
             if (!state.carrito.find(item => item.id === action.payload.product.id)) {
