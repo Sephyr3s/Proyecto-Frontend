@@ -5,6 +5,7 @@ import {getAll} from '../services/ProductServices';
 
 
 const Store = () => {
+    
     useEffect(() => {
         (async () => {
             try {
@@ -31,7 +32,7 @@ const Store = () => {
             <div className="container">
                 <div className="row text-center" style={{ paddingTop: '1rem' }} >
                  
-                    <p style={{fontSize: 30}}>Catalogo de productos </p>
+                    <p style={{fontSize: 30}}>Catalogue of products </p>
                 </div>
                 <Products />
             </div>

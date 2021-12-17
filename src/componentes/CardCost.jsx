@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const CardCost = () => {
 
   const { totalPagar, totalItems } = useContext(GlobalContext);
-
+    //carrito.splice(0,carrito.length)
     const handleClick = () => {
       toast('💵Gracias por su compra!', {
         position: "bottom-center",

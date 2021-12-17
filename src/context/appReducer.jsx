@@ -97,8 +97,10 @@ export function appReducer(state, action) {
                     totalPagar: getTotalPagar(partialState.carrito),
                     totalItems: getTotalItems(partialState.carrito)
                 }
-        
             }
+            
+            
+
             break
 
         default:

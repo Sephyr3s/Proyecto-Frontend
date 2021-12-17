@@ -40,6 +40,10 @@ export const ContextProvider = ({ children }) => {
   const addProductToCarrito = (product) => {
     dispatch({ type: "ADD_PRODUCT_TO_CARRITO", payload: { product } });
   };
+ 
+  const resetProdutToCarrito = (carrito,operacion) => {
+    dispatch({type: "RESET_PRODUCT_TO_CARRITO", payload:{carrito,operacion}});
+    }; 
 
   const updateQuantityProductInCarrito = (productId, operacion) => {
     dispatch({ type: "UPDATE_QUANTITY_PRODUCT_IN_CARRITO", payload: { productId, operacion } });
@@ -51,11 +55,11 @@ export const ContextProvider = ({ children }) => {
 
   const updateProductList = (match) => {
     dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { match }});
-  }
+  };
 
   const loadProducts = (productList) => {
     dispatch({ type: "LOAD_PRODUCTS", payload: { productList }});
-  }
+  };
 
   return (
     <GlobalContext.Provider
@@ -69,7 +73,8 @@ export const ContextProvider = ({ children }) => {
         deleteProductToCarrito,
         updateQuantityProductInCarrito,
         updateProductList,
-        loadProducts
+        loadProducts,
+        resetProdutToCarrito
       }}
     >
       {children}

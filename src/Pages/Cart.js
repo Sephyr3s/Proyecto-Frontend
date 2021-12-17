@@ -15,7 +15,7 @@ const Cart = () => {
         <>
             <Header />
            
-                <div className="container bgimage" >
+                <div className="container" >
                     <div className="row text-center" style={{ paddingTop: '4rem' }} >
                         <h1 style={{fontSize: 35}}>Shopping Cart </h1>
                         <p style={{fontSize: 15}} >This is your shopping cart</p>

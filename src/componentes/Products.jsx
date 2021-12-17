@@ -21,21 +21,22 @@ const Products = () => {
   }, [products, productsFilter])
   
   useEffect(() => {
-    setProductsToList(products)  
-    // eslint-disable-next-line react-hooks/exhaustive-deps    
+    console.log("Render de products", products);
+    setProductsToList(products)      
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  
 
   function mostrarResultadoDeBusqueda() {
     console.log(busqueda);
     if (busqueda && productsFilter.length === 0) {
-      return <p className="pt-3">Resultados de la busqueda: {productsFilter.length} </p>;
+      return <p className="pt-3">Search results: {productsFilter.length} </p>;
     }
     else if (busqueda && productsFilter.length !== 0) {
-      return <p className="pt-3">Resultados de la busqueda: {productsFilter.length} </p>;
-
+      return <p className="pt-3">Search results: {productsFilter.length} </p>;
     }
     else {
-      return <p className="pt-3">{products.length} productos en catálogo </p>;
+      return <p className="pt-3">{products.length} Liquors in catalogue </p>;
     }
   }
 
@@ -65,13 +66,14 @@ const Products = () => {
           (
             <div className="w-100" >
           
-                <p className="text-center" style={{ fontSize: '1.5rem'}}>Sin productos en el catálogo...!</p>
+                <p className="text-center" style={{ fontSize: '1.5rem'}}>There are not liquors in the catalogue!</p>
             </div>
           )
-        }
+      }
       </div>
     </div>
   );
 };
+
 
 export default Products;

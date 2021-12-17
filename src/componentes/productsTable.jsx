@@ -97,10 +97,10 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
                 ))
               }
             </tbody>
-          </table> ) :
+           </table> ) :
           (
             <div className="w-100" >
-                <p className="text-center" style={{ fontSize: '2rem'}}>Without products on inventary!</p>
+                <p className="text-center" style={{ fontSize: '3rem'}}>Without products on inventary!</p>
             </div>
           )
         }
