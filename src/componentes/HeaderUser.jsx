@@ -14,10 +14,10 @@ export default function HeaderUser() {
           <ul className="nav justify-content-center bg-black ">
       
             <li>
-              <Link className="nav-link text-white" to="/Login">Login</Link>
+              <Link className="nav-link text-white" to="/login">Login</Link>
             </li>
             <li>
-              <Link className="nav-link text-white" to="/Register">Register</Link>
+              <Link className="nav-link text-white" to="/register">Register</Link>
             </li>
             <li>
               <Link className="nav-link text-white" to="/Products">Home</Link>

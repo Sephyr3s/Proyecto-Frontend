@@ -7,7 +7,7 @@ const About = () => (
          <div className="container text-center" style={{ marginTop: '7rem' }}>
             <h1>Page about</h1>
             <section className="About pt-4">
-              <h3>We are a company that sells, exports liquors globally </h3>
+              <h3>We are a company that sells liquors globally </h3>
             </section>
           </div>
     </>

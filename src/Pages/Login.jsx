@@ -1,15 +1,15 @@
 import {Link,useHistory} from 'react-router-dom';
-import React from 'react';
+import React,{useContext,useState} from 'react';
 import AuthServices from '../services/AuthServices';
 import { AuthContext } from '../context/AuthContext';
 const Login = ()=>{
-    const{login} = React.useContext(AuthContext);
+    const{login} = useContext(AuthContext);
     let history = useHistory();
     const intialFormState = {
         email:"",
         password:""
     }
-    const [formData, setFormData]=React.useState(intialFormState)
+    const [formData, setFormData]=useState(intialFormState)
     const onChangeHandle = ev =>{
         setFormData({...formData,[ev.target.name]:ev.target.value});
     }

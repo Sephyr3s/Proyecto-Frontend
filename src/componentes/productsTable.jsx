@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { VscAdd } from "react-icons/vsc";
 import { GlobalContext } from "../context/GlobalContext"
 import ModalEditar from './ModalEditar.jsx'
 import { remove } from '../services/ProductServices';
@@ -12,7 +11,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
 
   const { products, setLiquorEdit } = useContext(GlobalContext);
   const handleDelete = (id) => {
-    // deleteProduct(id)
+    // deleteLiquor(id)
     (async () => {
       try {
         const result = await remove(id);
@@ -35,7 +34,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
       }
     })();
   }
-
+//editLiquor
   const handleClick = (p) => {
     const buttonCloseToast = document.querySelector(".Toastify__close-button.Toastify__close-button--light");
     if (buttonCloseToast != null) {
@@ -51,9 +50,8 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
           <div className="col-3 p-0"> {products.length} liquors in inventary </div>
           <div className="col-3 p-0">
             <Link to="/addProducts">
-              <button type="button" class="btn btn-success">
-                Add liquor
-                <VscAdd />
+              <button type="button" class="btn btn-primary rounded-pill">
+                New Liquor 
               </button>
             </Link>
           </div>
@@ -80,7 +78,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
                     </td>
                     <td>$ {p.precio}</td>
                     <td>
-                      <button onClick={() => handleClick(p)} name="editar" data-toggle="modal" data-target="#myModal" type="button" className="btn btn-info btn-sm m-1">
+                      <button onClick={() => handleClick(p)} name="editar" data-toggle="modal" data-target="#myModal" type="button" className="btn btn-outline-warning btn-sm m-1">
                         Edit
                       </button>
                       <button onClick={() => handleDelete(p.id)} name="eliminar" type="button" className="btn btn-danger btn-sm m-1">

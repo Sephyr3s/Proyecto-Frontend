@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import About from './Pages/About';
 import Cart from './Pages/Cart';
 import Store from './Pages/Store';
@@ -20,7 +20,7 @@ import HeaderUser from './componentes/HeaderUser';
 
 function App() {
 
-  const {isAuthenticated} =  React.useContext(AuthContext)
+  const {isAuthenticated} =  useContext(AuthContext)
   const isAuth = isAuthenticated;
   return (   
     <ContextProvider>
