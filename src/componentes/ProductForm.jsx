@@ -60,38 +60,21 @@ const ProductForm = ({ type }) => {
     <form className="m-2">
       <div className="form-group mb-3">
         <label htmlFor="productName">Name</label>
-        <input
-          onChange={handleChange}
-          type="text"
-          className="form-control"
-          id="productName"
-          name="productName"
-          placeholder="Product name"
-          value={productName}
+        <input onChange={handleChange} type="text" className="form-control" id="productName" name="productName" placeholder="Product name" value={productName}
         />
       </div>
       <div className="form-group mb-3">
           <label htmlFor="image">Url</label>
           <div className="input-group">
-            <input
-              onChange={handleChange}
-              id="image"
-              name="image"
-              type="url"
-              className="form-control"
-              placeholder="https://"
-              value={imagen}
+            <input onChange={handleChange} id="image" name="image" type="url" className="form-control" placeholder="https://" value={imagen}
             />
           </div>
         </div>
       <div className="form-group mb-3">
         <label htmlFor="precio">Price</label>
         <div className="input-group">
-          <span className="input-group-text">$</span>
-           <input
-            onChange={handleChange} id="precio" name="precio" type="number" className="form-control" value={precio}
-           />
-          <span className="input-group-text">.00</span>
+          <input onChange={handleChange} id="precio" name="precio" type="number" className="form-control" value={precio}/>
+          <span className="input-group-text">€</span>
         </div>
       </div>
       

@@ -9,7 +9,6 @@ const Header =() => {
       
        <>
         <ul className="nav justify-content-center bg-black " style={{ borderBottom: '2px solid purple'}}>
-          
           <li className="nav-item  " >
             <Link className="nav-link text-white " to="/">Store</Link>
           </li>

@@ -1,4 +1,7 @@
-import {Route,Redirect} from 'react-router-dom';
+import {
+    Route,
+    Redirect
+  } from 'react-router-dom';
 
   function PublicRoute({ children, isAuthenticated, ...rest }) {
     return (
@@ -8,7 +11,7 @@ import {Route,Redirect} from 'react-router-dom';
           ({ location }) => (!isAuthenticated ? (children) : (
               <Redirect
                 to={{
-                  pathname: '/products',
+                  pathname: '/Products',
                   state: { from: location }
                 }}
               />

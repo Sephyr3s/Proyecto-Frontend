@@ -15,8 +15,7 @@ const ProductsCart = () => {
             class="btn btn-danger btn-sm"
             style={{ marginRight: 10 }}
           >
-            <img
-              src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"width="25" height="25"  alt="delete"/>
+            <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"width="25" height="25"  alt="delete"/>
           </button>
           {cantidad}
           <button
@@ -26,12 +25,7 @@ const ProductsCart = () => {
             class="btn btn-primary btn-sm"
             style={{ marginLeft: 10 }}
           >
-            <img
-              src="https://img.icons8.com/ios-glyphs/60/000000/plus.png"
-              alt="mas"
-              width="25"
-              height="25"
-            />
+            <img src="https://img.icons8.com/ios-glyphs/60/000000/plus.png"alt="mas"width="25"  height="25"/>
           </button>
         </>
       );
@@ -46,12 +40,7 @@ const ProductsCart = () => {
             class="btn btn-danger btn-sm"
             style={{ marginRight: 10 }}
           >
-            <img
-              src="https://img.icons8.com/ios-glyphs/60/000000/minus.png"
-              alt="menos"
-              width="25"
-              height="25"
-            />
+            <img src="https://img.icons8.com/ios-glyphs/60/000000/minus.png" alt="menos" width="25"height="25"/>
           </button>
           {cantidad}
           <button
@@ -61,11 +50,7 @@ const ProductsCart = () => {
             class="btn btn-primary btn-sm"
             style={{ marginLeft: 10 }}
           >
-            <img
-              src="https://img.icons8.com/ios-glyphs/60/000000/plus.png"
-              alt="mas"
-              width="25"
-              height="25"
+            <img src="https://img.icons8.com/ios-glyphs/60/000000/plus.png" alt="mas" width="25" height="25"
             />
           </button>
         </>
@@ -99,10 +84,7 @@ const ProductsCart = () => {
             </td>
             <td>
               <img
-                src={
-                  p.imagen ||
-                  "https://ep01.epimg.net/elcomidista/imagenes/2020/08/31/articulo/1598909097_396757_1598912731_sumario_normal.jpg"
-                }  height="100%" width="40" alt="img"
+                src={p.imagen ||"https://ep01.epimg.net/elcomidista/imagenes/2020/08/31/articulo/1598909097_396757_1598912731_sumario_normal.jpg"}  height="100%" width="40" alt="img"
               />
             </td>
             <td style={{ fontSize: "1.3rem", paddingTop: "1.3rem" }}>
