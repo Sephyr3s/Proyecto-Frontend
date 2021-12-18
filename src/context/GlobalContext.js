@@ -1,7 +1,6 @@
 import { createContext, useReducer } from "react";
 import { appReducer } from "./appReducer";
 
-
 const initialState = {
   products: [],
   productsFilter: [],
@@ -29,15 +28,15 @@ export const ContextProvider = ({ children }) => {
   const changePrice = (precio) => {
     dispatch({ type: "CHANGE_PRICE", payload: { precio } });
   };
-  const setProductEdit = (product) => {
+  const setLiquorEdit = (product) => {
     changeProductName(product.nombre);
     changeImage(product.imagen);
     changePrice(product.precio);
-    dispatch({ type: "SET_PRODUCT_EDIT", payload: { product } });
+    dispatch({ type: "SET_LIQUOR_EDIT", payload: { product } });
   };
 
 
-  const addProductToCarrito = (product) => {
+  const addLiquorInCarrito = (product) => {
     dispatch({ type: "ADD_PRODUCT_TO_CARRITO", payload: { product } });
   };
  
@@ -45,20 +44,20 @@ export const ContextProvider = ({ children }) => {
     dispatch({type: "RESET_PRODUCT_TO_CARRITO", payload:{carrito,operacion}});
     }; 
 
-  const updateQuantityProductInCarrito = (productId, operacion) => {
-    dispatch({ type: "UPDATE_QUANTITY_PRODUCT_IN_CARRITO", payload: { productId, operacion } });
+  const QuantityLiquorsInCarrito = (productId, operacion) => {
+    dispatch({ type: "QUANTITY_LIQUORS_IN_CARRITO", payload: { productId, operacion } });
   };
 
-  const deleteProductToCarrito = (productId) => {
-    dispatch({ type: "DELETE_PRODUCT_TO_CARRITO", payload: { productId } });
+  const deleteLiquorInCarrito = (productId) => {
+    dispatch({ type: "DELETE_LIQUOR_IN_CARRITO", payload: { productId } });
   };
 
-  const updateProductList = (match) => {
+  const updateLiquorList = (match) => {
     dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { match }});
   };
 
-  const loadProducts = (productList) => {
-    dispatch({ type: "LOAD_PRODUCTS", payload: { productList }});
+  const loadLiquors = (productList) => {
+    dispatch({ type: "LOAD_LIQUORS", payload: { productList }});
   };
 
   return (
@@ -67,13 +66,13 @@ export const ContextProvider = ({ children }) => {
         ...state,
         changePrice,
         changeProductName, 
-        setProductEdit,    
+        setLiquorEdit,    
         changeImage,
-        addProductToCarrito,
-        deleteProductToCarrito,
-        updateQuantityProductInCarrito,
-        updateProductList,
-        loadProducts,
+        addLiquorInCarrito,
+        deleteLiquorInCarrito,
+        QuantityLiquorsInCarrito,
+        updateLiquorList,
+        loadLiquors,
         resetProdutToCarrito
       }}
     >

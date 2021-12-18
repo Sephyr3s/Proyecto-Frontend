@@ -15,6 +15,9 @@ const ProductForm = ({ type }) => {
     if (e.target.name === "productName") {
         changeProductName(e.target.value)
     }
+    if (e.target.name === "image") {
+      changeImage(e.target.value)
+  }
     if (e.target.name === "precio") {
         changePrice(parseInt(e.target.value))
     }
@@ -26,7 +29,7 @@ const ProductForm = ({ type }) => {
     if (!(productName === "Unnamed" || precio === 0 || precio == null || isNaN(precio) || imagen === "")) {
       (async () => {
         try {
-          const result = await create({ nombre: productName, precio: precio, image: imagen });
+          const result = await create({ nombre: productName, precio: precio, imagen: imagen });
           console.log("PRODUCT CREATED => ", result.data);
         } catch (error) {
           console.log(error);
@@ -92,10 +95,12 @@ const ProductForm = ({ type }) => {
         </div>
       </div>
       
-      {type === "crear" && <Link to="vistaProductos">
-        <button onClick={handleClick} className="btn btn-info mb-3"style={{ width: "100%" }} > Add liquor </button>
-      </Link>
-      }
+      {type === "crear" && 
+          <button  onClick={handleClick} className="btn btn-info mb-3"style={{ width: "100%" }}>  Add Liquor</button>
+        }
+        <Link to="/vistaProductos">
+          <button ref={redirection} style={{ display: "none" }}></button>  
+        </Link>
     </form>
     <ToastContainer/>
     </>

@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalContext'
 
 const Productitem = ({product, functionalButtons}) => {  
     
-    const { carrito, addProductToCarrito, updateQuantityProductInCarrito } = useContext(GlobalContext)
+    const { carrito, addLiquorInCarrito, QuantityLiquorsInCarrito } = useContext(GlobalContext)
     const [activeButtons, setActiveButtons] = useState("")
 
     useEffect(() => {
@@ -21,10 +21,10 @@ const Productitem = ({product, functionalButtons}) => {
     const handleClick = (e) => {
         if (e.target.name === "button-enable") {
             if (e.target.id === "add") {
-                addProductToCarrito(product)
+                addLiquorInCarrito(product)
             }
             if (e.target.id === "increment") {
-                updateQuantityProductInCarrito(product.id, "incrementar")
+                QuantityLiquorsInCarrito(product.id, "incrementar")
             }
         }
     }

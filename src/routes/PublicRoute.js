@@ -11,7 +11,7 @@ import {
           ({ location }) => (!isAuthenticated ? (children) : (
               <Redirect
                 to={{
-                  pathname: '/home',
+                  pathname: '/Login',
                   state: { from: location }
                 }}
               />

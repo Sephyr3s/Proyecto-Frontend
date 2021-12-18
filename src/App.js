@@ -12,8 +12,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { ContextProvider } from './context/GlobalContext'
 import {AuthContext} from './context/AuthContext';
 
-import PublicRoute from './routers/PublicRoute';
-import PrivateRoute from './routers/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
+import PrivateRoute from './routes/PrivateRoute';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import HeaderUser from './componentes/HeaderUser';
@@ -28,15 +28,15 @@ function App() {
       <Router>
         <HeaderUser/>
         <Switch>
-           <PublicRoute path="/login" isAuthenticated={isAuth}>
+           <PublicRoute path="/Login" isAuthenticated={isAuth}>
             <Login />
            </PublicRoute>
-          
-            <PublicRoute  path="/register" isAuthenticated={isAuth}>
+            <PublicRoute  path="/Register" isAuthenticated={isAuth}>
               <Register />
             </PublicRoute>
+
            <PrivateRoute  path="/" isAuthenticated={isAuth}> 
-            <Redirect exact from="/" to="/Products" />
+         
             <Route path="/Products" component={Store} />
             <Route path="/About" component={About} />
             <Route path="/Cart" component={Cart} />
@@ -44,7 +44,9 @@ function App() {
             <Route path="/addproducts" component={AddProduct} />
           
            </PrivateRoute>
-           <Route component={NotFound} />   
+           <Route path="*">
+            <NotFound />
+          </Route>  
         </Switch>
       </Router> 
   </ContextProvider>

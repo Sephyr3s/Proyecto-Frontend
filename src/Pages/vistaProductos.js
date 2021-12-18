@@ -8,14 +8,14 @@ import ProductsTable from "../componentes/productsTable";
 
 const ViewProducts = () => {
   
-  const { loadProducts} = useContext(GlobalContext);
+  const { loadLiquors} = useContext(GlobalContext);
   const [reloadTrigger,setReloadTrigger] = useState(true);
 
   useEffect(() => {
       (async () => {
           try {
               const result = await getAll();
-              loadProducts(result.data);
+              loadLiquors(result.data);
               console.log("Data fetch admin", result.data);
           } catch (error) {
               console.log(error);            

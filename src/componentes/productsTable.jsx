@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
 
-  const { products, setProductEdit } = useContext(GlobalContext);
+  const { products, setLiquorEdit } = useContext(GlobalContext);
   const handleDelete = (id) => {
     // deleteProduct(id)
     (async () => {
@@ -18,15 +18,16 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
         const result = await remove(id);
         console.log("DELETE PRODUCT => ", result.data);
 
+        
         toast.error(`Liquor <${id}> deleted`, {
-          position: "top-center",
-          autoClose: 3000,
+          position: "bottom-center",
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        });
+          });
 
         reloadTriggerFunction(!reloadTriggerValue)
       } catch (error) {
@@ -40,18 +41,18 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
     if (buttonCloseToast != null) {
       buttonCloseToast.click();
     }
-    setProductEdit(p);
+    setLiquorEdit(p);
   }
 
   return (
     <>
       <div className="container" style={{ padding: "0 5rem" }}>
         <div className="row py-3 d-flex justify-content-between">
-          <div className="col-3 p-0"> {products.length} products in inventary </div>
+          <div className="col-3 p-0"> {products.length} liquors in inventary </div>
           <div className="col-3 p-0">
             <Link to="/addProducts">
               <button type="button" class="btn btn-success">
-                Add product
+                Add liquor
                 <VscAdd />
               </button>
             </Link>
@@ -59,13 +60,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
         </div>
         {
           products.length > 0 ? (<table class="table table-hover table-bordered table-sm w-100">
-            <thead
-              style={{
-                background: "#161616",
-                color: "white",
-                border: "1px solid white",
-              }}
-            >
+            <thead style={{ background: "#161616",color: "white",border: "1px solid white",}}>
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
@@ -99,8 +94,8 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
             </tbody>
            </table> ) :
           (
-            <div className="w-100" >
-                <p className="text-center" style={{ fontSize: '3rem'}}>Without products on inventary!</p>
+            <div className="w-100 pt-xl-5 pl-xl-4" >
+                <p className="text-center pt-xl-5 pl-xl-4" style={{ fontSize: '3rem'}}>Without products on inventary!</p>
             </div>
           )
         }

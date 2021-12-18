@@ -3,6 +3,7 @@ import ProductForm from "./ProductForm";
 import Productitem from "./Productitem";
 import { update } from '../services/ProductServices';
 import { GlobalContext } from '../context/GlobalContext'
+import {  toast } from 'react-toastify'
 
 const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
 
@@ -26,7 +27,7 @@ const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
   }, [imagen])
 
   useEffect(() => {
-    setProduct({nombre: productName, precio: precio})
+    setProduct({nombre: productName, precio: precio, imagen:imagen})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productEdit])
 
@@ -42,9 +43,27 @@ const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
         }
       })();
     //Alerta producto actualizado
+    toast('🦄 Liquor actualized!', {
+      position: "bottom-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+    reloadTriggerFunction(!reloadTriggerValue);
     }
     else {
-      //Alerta "Fill all fields"
+      toast.error('Please, fill all fields!', {
+        position: "bottom-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     }
   }
 

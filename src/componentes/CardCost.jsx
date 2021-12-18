@@ -8,7 +8,7 @@ const CardCost = () => {
   const { totalPagar, totalItems } = useContext(GlobalContext);
     //carrito.splice(0,carrito.length)
     const handleClick = () => {
-      toast('💵Gracias por su compra!', {
+      toast('Gracias por su compra!', {
         position: "bottom-center",
         autoClose: 1500,
         hideProgressBar: false,

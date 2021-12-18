@@ -7,12 +7,12 @@ const Products = () => {
 
   const [busqueda, setBusqueda] = useState(false)
   const [match, setMatch] = useState("")
-  const { products, productsFilter, updateProductList } = useContext(GlobalContext)
+  const { products, productsFilter, updateLiquorList } = useContext(GlobalContext)
   const [productsToList, setProductsToList] = useState([])
 
   const handleChange = e => {
     setMatch(e.target.value)
-    updateProductList(e.target.value)
+    updateLiquorList(e.target.value)
     setBusqueda(e.target.value !== "")
   }
 

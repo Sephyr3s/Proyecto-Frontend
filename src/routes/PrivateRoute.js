@@ -15,7 +15,7 @@ import {
               ) : (
                 <Redirect
                   to={{
-                    pathname: '/login',
+                    pathname: '/Login',
                     state: { from: location }
                   }}
                 />

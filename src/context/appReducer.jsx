@@ -10,7 +10,7 @@ export const getTotalPagar = (carrito) => {
 export function appReducer(state, action) {
     switch (action.type) {
 
-        case "LOAD_PRODUCTS":
+        case "LOAD_LIQUORS":
             return {
                 ...state, products: action.payload.productList, productsFilter: action.payload.productList 
             }
@@ -35,7 +35,7 @@ export function appReducer(state, action) {
         case "CHANGE_PRICE":
             return {...state, precio: action.payload.precio}
         
-        case "SET_PRODUCT_EDIT":
+        case "SET_LIQUOR_EDIT":
             return {...state, productEdit: action.payload.product}
             
         
@@ -52,7 +52,7 @@ export function appReducer(state, action) {
                 totalItems: getTotalItems(state.carrito)
             }
         
-        case "DELETE_PRODUCT_TO_CARRITO":
+        case "DELETE_LIQUOR_IN_CARRITO":
             let partialState = state.carrito.filter(item => item.id !== action.payload.productId)
             return { 
                 ...state,
@@ -61,7 +61,7 @@ export function appReducer(state, action) {
                 totalItems: getTotalItems(partialState)
             }
         
-        case "UPDATE_QUANTITY_PRODUCT_IN_CARRITO":
+        case "QUANTITY_LIQUORS_IN_CARRITO":
             if (action.payload.operacion === "incrementar") {
                 let partialState = {
                     ...state,

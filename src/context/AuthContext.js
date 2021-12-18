@@ -21,7 +21,6 @@ export const AuthProvider = ({children})=>{
     }
 
     const isAuthenticated = ()=>{
-
             if(!authState.access_token )
                 return false;
             else 

@@ -40,7 +40,7 @@ const AddProduct = () => {
       <div className="row text-center py-5 w-100" style={{ marginTop: '1.5rem' }}>
         <h1 style={{ fontSize: 35 }}>Add product</h1>
         <p style={{ fontSize: 20 }}>
-          Fill the forn to continue
+          Fill the form to continue
         </p>
       </div>
       <div className="row d-flex w-100 justify-content-around">

@@ -28,13 +28,15 @@ const Cart = () => {
                             </>
                         : 
                             <div className="w-100 text-center" >
-                                <button className="btn btn-outline-light rounded-pill  p-1">
+                                
                                 <Link class=" text-dark" to="/Products" >
-                                    <div >
-                                        <p>Proceed to shop</p>
+                                  <button className="btn btn-outline-info rounded-pill  p-1"> 
+                                   <div >
+                                        Proceed to shop
                                     </div>
+                                    </button>
                                 </Link>
-                                </button>
+                                
                                 <p className="text-center" style={{ PaddingTop:"30 px", fontSize: '2rem'}}>Empty car!</p>
                                 
                             </div>
